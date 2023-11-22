@@ -58,4 +58,4 @@ Before setting up the project locally, ensure you have the following prerequisit
  python3 manage.py runserver
  ```
 
-The API should now be running locally at [http://localhost:8000/](http://localhost:8000/).
+The platform should now be running locally at [http://localhost:8000/](http://localhost:8000/).
