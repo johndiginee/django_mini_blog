@@ -10,7 +10,7 @@ class Tag(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True)
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete= models.CASCADE)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete= models.CASCADE, default=1)
     content = models.TextField()
     image = models.ImageField(upload_to='', blank=True, null=True)
     tags = models.ManyToManyField(Tag, blank=True)
