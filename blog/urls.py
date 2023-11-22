@@ -1,5 +1,7 @@
 from django.urls import path
 from .views import HomeView, PostView, PostCreateView, PostUpdateView, PostDeleteView
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
