@@ -170,8 +170,6 @@ LOGIN_URL = "/users/login/"
 if os.environ.get('ENV') == 'PRODUCTION':
     STATIC_ROOT = BASE_DIR / 'staticfiles'
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-    DATABASES['default'] = dj_database_url.config(
-        conn_max_age=600, ssl_require=True)
     EMAIL_HOST = os.environ.get("EMAIL_HOST")
     EMAIL_PORT = os.environ.get("EMAIL_HOST")
     EMAIL_HOST_USER = os.environ.get("EMAIL_HOST")
