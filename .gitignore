@@ -250,6 +250,8 @@ myenv/
 Pipfile
 .DS_Store
 *.sqlite3
+db.sqlite3
+
 *.pyc
 *.db
 *.pid
