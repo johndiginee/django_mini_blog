@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic',
     'users',
     'blog',
 ]
@@ -155,6 +156,7 @@ USE_TZ = True
 # New
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (BASE_DIR / 'static',)
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
@@ -169,16 +171,8 @@ AUTH_USER_MODEL = 'users.User'
 
 LOGIN_URL = "/users/login/"
 
-if os.environ.get('ENV') == 'PRODUCTION':
-    STATIC_ROOT = BASE_DIR / 'staticfiles'
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-    EMAIL_HOST = os.environ.get("EMAIL_HOST")
-    EMAIL_PORT = os.environ.get("EMAIL_HOST")
-    EMAIL_HOST_USER = os.environ.get("EMAIL_HOST")
-    EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST")
-    EMAIL_USE_TLS = True
-    DEFAULT_FROM_EMAIL = "Django blog <noreply@djangoblog.com>"
-else:
-    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 
